@@ -5,6 +5,10 @@ from math import sqrt
 app = Flask(__name__)
 
 @app.route('/calculate', methods=['POST'])
+@app.route('/', methods=['GET'])
+def home():
+    return "Calculator API is running. Use POST /calculate."
+
 def calculate():
     data = request.get_json()
     num1 = float(data.get('num1', 0))
